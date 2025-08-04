@@ -73,4 +73,31 @@ DUCKDB_API hash_t Hash(dtime_tz_t val);
 DUCKDB_API hash_t Hash(const char *val, size_t size);
 DUCKDB_API hash_t Hash(uint8_t *val, size_t size);
 
+// Legacy hash functions from DuckDB v1.2
+DUCKDB_API hash_t HashBytesLegacy(const_data_ptr_t ptr, size_t len) noexcept;
+
+template <class T>
+hash_t HashLegacy(T value);
+
+template <>
+DUCKDB_API hash_t HashLegacy(uint64_t val);
+template <>
+DUCKDB_API hash_t HashLegacy(int64_t val);
+template <>
+DUCKDB_API hash_t HashLegacy(hugeint_t val);
+template <>
+DUCKDB_API hash_t HashLegacy(uhugeint_t val);
+template <>
+DUCKDB_API hash_t HashLegacy(float val);
+template <>
+DUCKDB_API hash_t HashLegacy(double val);
+template <>
+DUCKDB_API hash_t HashLegacy(const char *val);
+template <>
+DUCKDB_API hash_t HashLegacy(string_t val);
+template <>
+DUCKDB_API hash_t HashLegacy(interval_t val);
+DUCKDB_API hash_t HashLegacy(const char *val, size_t size);
+DUCKDB_API hash_t HashLegacy(uint8_t *val, size_t size);
+
 } // namespace duckdb

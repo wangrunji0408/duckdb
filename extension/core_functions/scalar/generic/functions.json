@@ -22,6 +22,14 @@
         "type": "scalar_function"
     },
     {
+        "name": "hash_legacy",
+        "parameters": "value",
+        "description": "Returns a `UBIGINT` with the hash of the `value` using the legacy hash function from DuckDB v1.2. Note that this is not a cryptographic hash.",
+        "example": "hash_legacy('🦆')",
+        "categories": ["string"],
+        "type": "scalar_function"
+    },
+    {
         "name": "least",
         "parameters": "arg1, arg2, ...",
         "description": "Returns the smallest value. For strings lexicographical ordering is used. Note that uppercase characters are considered “smaller” than lowercase characters, and collations are not supported.",
